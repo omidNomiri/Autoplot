@@ -6,8 +6,8 @@ author: "Omid"
 date: "2025-11-12"
 runtime: shiny
 output:
-  html_document:
-    df_print: paged
+  md_document:
+    variant: gfm
 ---
 ```
 

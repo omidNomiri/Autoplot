@@ -1,31 +1,19 @@
+# AutoPlot Package
 
-```yaml
+This package is designed for anyone who wants to quickly explore and visualize their data.
+In statistics, we often deal with many types of plots, and setting them up one by one can be time-consuming.
+**AutoPlot** helps you generate a variety of plots automatically, so you can quickly see what fits your dataset best.
+
+After exploring the generated plots, you can choose the ones you like and configure them more precisely.
+
 ---
-title: "Auto Plot"
-author: "Omid"
-date: "2025-11-12"
-runtime: shiny
-output:
-  github_document: default
----
-```
 
+## Example
 
+Suppose your dataset is the classic **iris** dataset.
+Normally, you'd start by summarizing your data to decide which plots are suitable:
 
-## Auto Ploter
-
-This is a R program for everyone who want extract plots, and in the world of statistics we have a lots of plots.
-It is boring if you setup one by one to show what it is and how it looks for your data, so you run **Auto plot** program and see the result.
-After seeing the result on your dataset, choose what you like and go for setup.
-
-### Example
-
-We say your dataset is **iris** dataset and we run auto ploter on it.
-
-By default you summary your data and think what plot is good for your data.
-
-
-``` r
+```r
 summary(iris)
 ```
 
@@ -39,8 +27,7 @@ summary(iris)
 ##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500
 ```
 
-You can see some data in here.
-
+You may also inspect a few rows:
 
 ```
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -51,10 +38,9 @@ You can see some data in here.
 ## 5          5.0         3.6          1.4         0.2  setosa
 ```
 
-or setup plots one by one like this:
+Or manually create plots such as:
 
-
-``` r
+```r
 data(iris)
 counts = table(iris$Species)
 counts = counts[is.finite(counts)]
@@ -66,15 +52,28 @@ pie(counts,
 
 ![plot of chunk show-plot](figure/show-plot-1.png)
 
-But with this program you just say:
+---
 
+## Installation
 
-``` r
-auto_plot(iris)
+To install the package directly from GitHub:
+
+```r
+devtools::install_github("omidNomiri/AutoPlot")
 ```
 
-and here your result:
+---
+
+## Usage
+
+After installing the package, simply run:
+
+```r
+run_app()
+```
+
+Upload your dataset in **CSV format** and AutoPlot will generate a collection of plots for you.
+
+Here is an example output using the iris dataset:
 
 ![tested image on iris dataset](./Autoplot_example.png)
-
-````

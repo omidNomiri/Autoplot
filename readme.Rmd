@@ -1,0 +1,60 @@
+---
+title: "Auto Plot"
+auther: Omid
+date: "2025-11-12"
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE
+)
+```
+
+## Auto Ploter
+
+This is a R program for everyone who want extract plots and in the world of statics we have a lots of plot. Its boring if you get and setup one by one to show what it is and how is look for your data, so you run **Auto plot** program and see the result. After the seeing your result on your dataset. choose what you like and go for stup.
+
+### Example
+
+we say your dataset is **iris** dataset and we run auto ploter on it.
+
+by defult you summry your data and thing what plot good for your data
+
+```{r iris}
+summary(iris)
+```
+you can see some data in here
+
+```{r show data, echo = FALSE}
+numericInput("n", 
+ "How many data?", 5)
+renderTable({
+ head(iris, input$n)
+})
+```
+
+or setup plots one by one like this
+
+```{r show plot, echo=TRUE}
+data(iris)
+
+counts <- table(iris$Species)
+
+counts <- counts[is.finite(counts)]
+
+pie(counts,
+    main = "Distribution of Iris Species",
+    col = c("red", "blue", "green"))
+```
+
+but with this program you just say
+
+```{r use case of auto_plot, eval=FALSE, include=TRUE}
+auto_plot(iris)
+```
+
+and here your result
+
+![tested image on iris dataset](./Autoplot_example.png)
